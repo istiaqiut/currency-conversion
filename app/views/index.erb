@@ -1,8 +1,69 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	</head>
-	<body>
-		<h1>Hello world!</h1>
-	</body>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <link rel="stylesheet" type='text/css' href="/stylesheet/style.css">
+  <title>Currency Conversion</title>
+</head>
+<body>
+
+<div class="container-fluid convert">
+  <h1> Currency Conversion </h1>
+  <% if flash[:alert] %>
+    <div class="row">
+
+      <div class="alert alert-danger">
+        <%= flash[:alert] %>
+      </div>
+
+    </div>
+  <% end %>
+  <% if flash[:notice] %>
+    <div class="row">
+
+      <div class="alert alert-success">
+        <%= flash[:notice] %>
+      </div>
+
+    </div>
+  <% end %>
+
+  <form action="/" method="post">
+    <div class="row">
+      <div class="input">
+        Amount to Convert
+        <span>
+					<input type="number" min="1" name="inputvalue" required>
+			</span>
+      </div>
+      <div class="currency_dropdown">
+        from
+        <span>
+					<select name="inputcurrency">
+					<% @currencies.each do |currency| %>
+						<option value="<%= currency %>"><%= currency %></option>
+					<% end %>
+				</select>
+				</span>
+        to
+      </div>
+      <div class="currency_dropdown">
+        <select name="outputcurrency">
+          <% @currencies.each do |currency| %>
+            <option value="<%= currency %>"><%= currency %></option>
+          <% end %>
+        </select>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-info">Exchange</button>
+  </form>
+</div>
+
+<div class="container-fluid">
+  <a type="button" class="btn btn-primary" href='/histories'> Currency History</a>
+</div>
+
+
+</body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  <title>Currency Conversion Histories</title>
+</head>
+<body>
+<div class="container-fluid">
+  <h1>Currency Conversion Histories</h1>
+  <% if @currencies_histories.present? %>
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+    <tr>
+      <th>Input Currency</th>
+      <th>Input Value</th>
+      <th>Output Currency</th>
+      <th>Output Value</th>
+      <th>Time</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @currencies_histories.each do |currencies_history| %>
+      <tr>
+        <td><%= currencies_history.inputCurrency %></td>
+        <td><%= currencies_history.inputValue %></td>
+        <td><%= currencies_history.outputCurrency %></td>
+        <td><%= currencies_history.outputValue %></td>
+        <td><%= currencies_history.created_at.strftime('%a %d %b %Y') %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% else %>
+    <p> No history found!</p>
+  <% end %>
+
+
+  <a type="button" class="btn btn-primary" href='/'> Home</a>
+</div>
+</body>
+</html>

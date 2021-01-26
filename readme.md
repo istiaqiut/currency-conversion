@@ -9,7 +9,10 @@ For this challenge, you re going to use this repo as a starter project, for that
 ## Install dependencies 
 To install required dependencies you just need to run `bundle install`
 ## Database server
-We assumed that you will be using *PostgreSQL* as a database server, that is why we included by default PostgreSQL datamapper adapter.
+Here *MySQL* is used as database server. The MySQL datamapper added in the Gemfile. 
+
+You may need to install *libmysqlclient-dev* and *mysql-server* if these are not already installed. 
+
 In case you want to use another database server please check the [documentation of datamapper](https://rom-rb.org/learn/) and add the right adapter.
 
 Make sure to update database connection path in the file `config/environment.rb`.

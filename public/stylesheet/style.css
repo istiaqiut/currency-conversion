@@ -1,0 +1,17 @@
+.convert {
+    margin-bottom: 15px;
+}
+
+.input {
+    margin-left: 15px;
+}
+
+.input span {
+    display: inline;
+    overflow: hidden;
+    padding-left: 0px
+}
+
+.currency_dropdown {
+    margin-left: 10px;
+}
